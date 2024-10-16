@@ -1,0 +1,279 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath} % Required for mathematical symbols
+\usepackage{amssymb} % Required for more mathematical symbols
+\usepackage{amsthm}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % For smaller bullet points
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\title{Analysis 1 Übungsblatt 1}
+\author{Jarne, Lars}
+\date{}
+
+\begin{document}
+
+\maketitle 
+
+\paragraph{Aufgabe 1}
+
+\noindent Beweisen Sie die folgenden Äquivalenzen
+
+\paragraph{(a)} $\neg (A \land B) \text{ ist äquivalent zu } \neg A \lor \neg B.$\\
+
+\[
+\begin{array}{|c|c|c|c|c|c|c|}
+\hline
+A & B & A \land B & \neg A & \neg B & \neg A \lor \neg B & \neg(A \land B) \\
+\hline
+1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 1 \\
+0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+\end{array}
+\]\\
+
+\paragraph{(b)} $A \Rightarrow B$ ist äquivalent zu $\neg B \Rightarrow \neg A$\\
+
+\[
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+A & B & \neg A & \neg B & A \Rightarrow B & \neg B \Rightarrow \neg A \\
+\hline
+1 & 1 & 0 & 0 & 1 & 1 \\
+1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+\end{array}
+\]\\
+
+\paragraph{(c)} $A \lor (B \land C)$ ist äquivalent zu $(A \lor B) \land (A \lor C)$\\
+
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+A & B & C & B \land C & A \lor B & A \lor C & A \lor (B \land C) & (A \lor B) \land (A \lor C) \\
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{array}
+\]\\ \\ \\
+
+
+
+
+
+
+\paragraph{Aufgabe 2}
+
+\noindent Sei $M$ eine Menge. Für jedes Element $x \in M$ bezeichne $A(x)$ eine gegebene Aussage. Zeigen Sie:
+
+\paragraph{(a)} $\quad \neg \left( \forall x \in M : A(x) \right) \Leftrightarrow \exists x \in M : \neg A(x).$
+
+\begin{enumerate}
+    \item[]{``$\Rightarrow$'':}
+            $\neg \left( \forall x \in M : A(x) \right)$ bedeutet: Es ist nicht wahr, dass für alle $x$ aus $M$ die Aussage gilt.
+            Diese Aussage ist wahr, wenn es ein $x \in M$ gibt, für welches $A(x)$ nicht gilt, also: $\exists x \in M : \neg A(x)$.
+    \item[]{``$\Leftarrow$'':}
+            $\exists x \in M : \neg A(x)$ bedeutet: Es existiert ein $x$ aus $M$ für das $A(x)$ nicht gilt. Das bedeutet, dass es nicht für alle $x$ aus $M$ gelten kann, also: $\neg \left( \forall x \in M : A(x) \right)$.
+\end{enumerate}
+
+\paragraph{(b)} $\quad \neg \left( \exists x \in M : A(x) \right) \Leftrightarrow \forall x \in M : \neg A(x).$
+
+\begin{enumerate}
+    \item[]{``$\Rightarrow$'':}
+            $\neg \left( \exists x \in M : A(x) \right)$ bedeutet: Es ist nicht wahr, dass es ein $x$ aus $M$ gibt, für das $A(x)$ gilt.
+            Also bedeutet das, dass für jedes $x$ aus $M$ die Aussage $A(x)$ nicht gilt: $\forall x \in M : \neg A(x)$.
+    \item[]{``$\Leftarrow$'':}
+           $\forall x \in M : \neg A(x)$ bedeutet: Für alle $x$ aus $M$ gilt, dass $A(x)$ nicht gilt. Also gibt es kein $x$ aus $M$, für das $A(x)$ gilt: $\neg \left( \exists x \in M : A(x) \right)$.
+\end{enumerate}
+
+
+
+
+
+\paragraph{Aufgabe 3}
+
+\paragraph{(a)} Gegeben seien die folgenden Mengen:
+
+\begin{enumerate}
+    \item[$X =$] $\{n \in \mathbb{N} \mid 1 \leq n \leq 100\},$
+    \item[$A =$] $\{n \in X \mid 2(n - 13)(n - 3) < 0\},$
+    \item[$B =$] $\{n \in X \mid \text{es gibt ein } m \in \mathbb{N} \text{ mit } m^2 = n\},$
+    \item[$C =$] $\{n \in X \mid n \text{ ist durch 2 teilbar}\}.$
+\end{enumerate}\\
+
+\noindent Bestimmen Sie die Mengen:
+
+\begin{enumerate}
+    \item $A \cup B$ - $C$ = \{1, 5, 7, 9, 11, 25, 49, 81\}
+    \item $A \cup (B - C)$ = \{1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 25, 49, 81\}
+    \item $(B \cap A)$ - C = \{9\}
+    \item $B \cap (A$ - C) = \{9\}
+\end{enumerate}
+
+\paragraph{(b)} Seien $X, Y, Z$ Mengen. Beweisen Sie die De Morganschen Regeln:
+
+\paragraph{(i)} $X - (Y \cap Z)$ = $(X - Y) \cup (X - Z)$
+
+\begin{enumerate}
+    \item[]{``$\Rightarrow$'':} Sei $x \in X - (Y \cap Z)$.
+        \begin{enumerate}[label=$\circ$]
+            \item Dann ist $x \in X \land x \notin (Y \cap Z)$.
+            \item Daraus folgt, dass $(x \notin Y) \lor (x \notin Z)$, da $x$ sonst im Schnitt wäre.
+            \item Wenn $x \notin Y$, dann $x \in X - Y$.
+            \item Wenn $x \notin Z$, dann $x \in X - Z$.
+            \item Aus Punkt 2 folgt, dass $x$ mindestens in $(X - Y) \lor (X - Z)$.
+            \item Somit folgt $x \in (X - Y) \cup (X - Z)$.
+        \end{enumerate}
+    \item[]{``$\Leftarrow$'':} Sei $x \in (X - Y) \cup (X - Z)$.
+        \begin{enumerate}[label=$\circ$]
+            \item Somit ist $x \in X \land (x \in (X- Y) \lor x \in (X - Z))$.
+            \item Daraus folgt $x \notin Y \lor x \notin Z$.
+            \item Da Punkt 2 gilt, muss $x \notin (Y \cap Z)$, da sonst $x \in Y \land x \in Z$ wäre.
+            \item Somit ist $x \in X \land x \notin (Y \cap Z)$.
+            \item Daraus folgt $x \in X - (Y \cap Z)$.
+        \end{enumerate}
+\end{enumerate}
+
+\noindent Da beide Implikationen gezeigt wurden, folgt: $X - (Y \cap Z)$ = $(X - Y) \cup (X - Z)$.
+
+\paragraph{(ii)} $X - (Y \cup Z)$ = $(X - Y) \cap (X - Z)$
+
+\begin{enumerate}
+    \item[]{``$\Rightarrow$'':} Sei $x \in X - (Y \cup Z)$.
+        \begin{enumerate}[label=$\circ$]
+            \item Dann ist $x \in X \land x \notin (Y \cup Z)$.
+            \item Daraus folgt, dass $x \notin Y \land x \notin Z$, da $x$ nicht in der Vereinigung von $Y$ und $Z$ ist.
+            \item Wenn $x \notin Y$, dann $x \in X - Y$.
+            \item Wenn $x \notin Z$, dann $x \in X - Z$.
+            \item Da beide Bedingungen erfüllt sind, folgt $x \in (X - Y) \land x \in (X - Z)$.
+            \item Somit folgt $x \in (X - Y) \cap (X - Z)$.
+        \end{enumerate}
+    \item[]{``$\Leftarrow$'':} Sei $x \in (X - Y) \cap (X - Z)$.
+        \begin{enumerate}[label=$\circ$]
+            \item Dann ist $x \in X \land x \in (X - Y) \land x \in (X - Z)$.
+            \item Das bedeutet, dass $x \notin Y \land x \notin Z$.
+            \item Daraus folgt, dass $x \notin (Y \cup Z)$, da $x$ weder in $Y$ noch in $Z$ enthalten ist.
+            \item Da $x \in X$ und $x \notin (Y \cup Z)$, folgt $x \in X - (Y \cup Z)$.
+        \end{enumerate}
+\end{enumerate}
+
+\noindent Da beide Implikationen gezeigt wurden, folgt: $X - (Y \cup Z) = (X - Y) \cap (X - Z)$. \\
+
+
+
+
+
+
+
+\paragraph{Aufgabe 4}
+
+\noindent Seien $X, Y$ Mengen und $f : X \to Y$ eine Abbildung.
+
+\begin{enumerate}
+    \item[(i)] Für $A \subseteq X$ setzen wir 
+        $f(A) := \{f(a) \mid a \in A\}$.
+    \item[(ii)] Für $B \subseteq Y$ setzen wir 
+        $f^{-1}(B) := \{x \in X \mid f(x) \in B\}$.
+\end{enumerate}
+
+\noindent Welche der folgenden Aussagen sind wahr? Begründen oder widerlegen Sie.\\
+
+\paragraph{(a)} Für alle $A, B \subseteq Y$ gilt $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$.
+
+\begin{enumerate}
+    \item Richtung: $f^{-1}(A \cap B) \subseteq f^{-1}(A) \cap f^{-1}(B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $x \in f^{-1}(A \cap B)$. Daraus folgt, dass $f(x) \in A \cap B$, also $f(x) \in A$ und $f(x) \in B$.
+            \item Das bedeutet, dass $x \in f^{-1}(A)$ und $x \in f^{-1}(B)$, also $x \in f^{-1}(A) \cap f^{-1}(B)$.
+        \end{enumerate}
+    \item Richtung: $f^{-1}(A) \cap f^{-1}(B) \subseteq f^{-1}(A \cap B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $x \in f^{-1}(A) \cap f^{-1}(B)$. Dann gilt $x \in f^{-1}(A)$ und $x \in f^{-1}(B)$.
+            \item Das bedeutet, dass $f(x) \in A$ und $f(x) \in B$, also $f(x) \in A \cap B$.
+            \item Somit gilt $x \in f^{-1}(A \cap B)$.
+        \end{enumerate}
+\end{enumerate}
+
+\noindent Da beide Inklusionen gezeigt wurden, folgt $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$. \\
+
+\noindent\textbf{Ergebnis:} Die Aussage ist wahr.\\
+
+\paragraph{(b)} Für alle $A, B \subseteq Y$ gilt $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$.
+
+\begin{enumerate}
+    \item Richtung: $f^{-1}(A \cup B) \subseteq f^{-1}(A) \cup f^{-1}(B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $x \in f^{-1}(A \cup B)$. Dann gilt $f(x) \in A \cup B$, also $f(x) \in A$ oder $f(x) \in B$.
+            \item Daraus folgt $x \in f^{-1}(A)$ oder $x \in f^{-1}(B)$, also $x \in f^{-1}(A) \cup f^{-1}(B)$.
+        \end{enumerate}
+    \item Richtung: $f^{-1}(A) \cup f^{-1}(B) \subseteq f^{-1}(A \cup B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $x \in f^{-1}(A) \cup f^{-1}(B)$. Dann gilt $f(x) \in A$ oder $f(x) \in B$, also $f(x) \in A \cup B$.
+            \item Das bedeutet $x \in f^{-1}(A \cup B)$.
+        \end{enumerate}
+\end{enumerate}
+
+\noindent Da beide Inklusionen gezeigt wurden, folgt $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$. \\
+
+\noindent\textbf{Ergebnis:} Die Aussage ist wahr.\\
+
+\paragraph{(c)} Für alle $A, B \subseteq X$ gilt $f(A \cap B) = f(A) \cap f(B)$.
+
+\begin{enumerate}
+    \item Richtung: $f(A \cap B) \subseteq f(A) \cap f(B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $y \in f(A \cap B)$. Dann existiert ein $x \in A \cap B$, sodass $f(x) = y$. 
+            \item Da $x \in A$ und $x \in B$, folgt $y = f(x) \in f(A)$ und $y = f(x) \in f(B)$.
+            \item Also gilt $y \in f(A) \cap f(B)$.
+        \end{enumerate}
+    \item Richtung: $f(A) \cap f(B) \subseteq f(A \cap B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $y \in f(A) \cap f(B)$. Dann existieren $x_1 \in A$ und $x_2 \in B$, sodass $f(x_1) = y$ und $f(x_2) = y$.
+            \item Da jedoch $x_1$ und $x_2$ nicht unbedingt gleich sind (da $f$ nicht injektiv sein muss), folgt nicht, dass $y \in f(A \cap B)$.
+        \end{enumerate}
+\end{enumerate}
+
+\noindent Da die Umkehrung nicht gilt, ist $f(A \cap B) \subseteq f(A) \cap f(B)$, aber nicht umgekehrt. \\
+
+\noindent\textbf{Ergebnis:} Die Aussage ist falsch.\\
+
+\paragraph{(d)} Für alle $A, B \subseteq X$ gilt $f(A \cup B) = f(A) \cup f(B)$.
+
+\begin{enumerate}
+    \item Richtung: $f(A \cup B) \subseteq f(A) \cup f(B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $y \in f(A \cup B)$. Dann existiert ein $x \in A \cup B$, sodass $f(x) = y$.
+            \item Da $x \in A$ oder $x \in B$, folgt $y = f(x) \in f(A)$ oder $y = f(x) \in f(B)$, also $y \in f(A) \cup f(B)$.
+        \end{enumerate}
+    \item Richtung: $f(A) \cup f(B) \subseteq f(A \cup B)$
+        \begin{enumerate}[label=$\circ$]
+            \item Sei $y \in f(A) \cup f(B)$. Dann existieren $x_1 \in A$ oder $x_2 \in B$, sodass $f(x_1) = y$ oder $f(x_2) = y$.
+            \item In beiden Fällen gilt $x_1 \in A \cup B$ oder $x_2 \in A \cup B$, also $y \in f(A \cup B)$.
+        \end{enumerate}
+\end{enumerate}
+
+\noindent Da beide Inklusionen gezeigt wurden, folgt $f(A \cup B) = f(A) \cup f(B)$. \\
+
+\noindent\textbf{Ergebnis:} Die Aussage ist wahr.
+
+\end{document}
+
+
+
+
