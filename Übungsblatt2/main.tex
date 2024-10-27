@@ -1,0 +1,250 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath} % Required for mathematical symbols
+\usepackage{amssymb} % Required for more mathematical symbols
+\usepackage{amsthm}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % For smaller bullet points
+\usepackage{hyperref}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\title{Analysis 1 Übungsblatt 2}
+\author{Jarne, Lars}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\paragraph{Aufgabe 1}
+
+Zeigen Sie: Für alle $n \in \mathbb{N}$ gilt
+$$\sum_{k=1}^{n}k^3  =  \left(\sum_{k=1}^{n}k\right)^2$$
+
+\paragraph{Induktionsanfang}
+
+Für $n = 1$ gilt:
+$$\sum_{k=1}^{1}k^3 = 1^3 = 1 \quad \text{und} \quad \left(\sum_{k=1}^{1}k\right)^2 = (1)^2 = 1$$
+
+\noindent Damit ist der Induktionsanfang bewiesen.
+
+\paragraph{Induktionsvoraussetzung}
+
+Angenommen, die Aussage gilt für ein beliebiges, aber festes $n \in \mathbb{N}$, also:
+$$\sum_{k=1}^{n}k^3  =  \left(\sum_{k=1}^{n}k\right)^2$$
+
+\paragraph{Induktionsschritt}
+
+Wir zeigen nun, dass die Aussage auch für $n+1$ gilt:
+
+\begin{proof}
+\begin{align*}
+\sum_{k=1}^{n+1}k^3 &= \sum_{k=1}^{n}k^3 + (n + 1)^3 \\
+&\overset{\text{IV}}{=} \left(\sum_{k=1}^{n}k\right)^2 + (n + 1)^3
+\end{align*}
+
+\noindent Aus der Vorlesung wissen wir:
+$$\sum_{k=1}^{n}k = \frac{n(n + 1)}{2}$$
+
+\noindent Also gilt:
+\begin{align*}
+\left(\frac{n(n + 1)}{2}\right)^2 + (n + 1)^3 
+&= \frac{n^2(n + 1)^2}{4} + (n + 1)^3 \\
+&= \frac{n^2(n + 1)^2}{4} + \frac{4(n + 1)^3}{4} \\
+&= \frac{(n + 1)^2(n^2 + 4(n + 1))}{4} \\
+&= \frac{(n + 1)^2(n + 2)^2}{4} \\
+&= \left(\frac{(n + 1)(n + 2)}{2}\right)^2
+\end{align*}
+
+\noindent Damit haben wir gezeigt:
+$$\sum_{k=1}^{n+1}k^3 = \left(\sum_{k=1}^{n+1}k\right)^2$$
+
+\noindent Die Aussage gilt also auch für $n+1$. Damit ist der Induktionsschritt abgeschlossen.
+\end{proof}
+
+\paragraph{Aufgabe 2}
+
+Geben Sie je ein Beispiel für eine Abbildung von $\mathbb{R} \to \mathbb{R}$, welche
+
+\paragraph{a)}
+
+injektiv und surjektiv ist\\
+
+\noindent $x \mapsto x$\\ \\
+\noindent Diese Abbildung beschreibt die Identität von $\mathbb{R}$, und bildet jedes Element $x \in \mathbb{R}$ auf sich selbst ab. Jedes $x$ wird auf genau ein Element, nämlich sich selbst, abgebildet. Demnach ist die Abbildung sowohl injektiv, als auch surjektiv, also bijektiv.
+
+\paragraph{b)}
+\noindent injektiv, aber nicht surjektiv ist\\
+
+\noindent $x \mapsto e^x$\\ \\
+\noindent Diese Abbildung, auch bekannt als Exponentialfunktion, ist nicht surjektiv, da sie nur positive Werte annimmt, also $f(x) > 0$ für alle $x \in \mathbb{R}$. Dies zeigt bspw. die Ableitung: 
+
+\[
+\frac{d}{dx} e^x = e^x
+\]
+\noindent Da alle Terme dieser Reihe für alle reellen $x$ positiv sind (außer für $x = 0$, wo $e^0 = 1$ gilt), folgt, dass $e^x$ für jeden reellen Wert von $x$ positiv ist.\\
+
+\noindent Oberhalb der x-Achse ist sie bijektiv, da eine Umkehrfunktion, in diesem Fall der natürliche Logarithmus, existiert, der nur für $x > 0$ definiert ist.
+
+\paragraph{c)}
+\noindent surjektiv, aber nicht injektiv ist\\
+
+\noindent $x \mapsto x^3-3x$\\ \\
+\noindent Bei dieser Abbildung handelt es sich um eine kubische Polynomfunktion. Diese sind per Def. stetig auf ganz $\mathbb{R}$.\\
+$$ \lim_{x\to\infty} (x^3-3x) = + \infty $$
+$$ \lim_{x\to-\infty} (x^3-3x) = - \infty $$\\
+\noindent Der Limes verrät, dass die Funktion jeden Wert in $\mathbb{R}$ annimmt, was sie surjektiv macht.
+\noindent Da bspw. $f(\sqrt{3})$ = $f(-\sqrt{3}) = f(0) = 0$, ist die Abbildung nicht injektiv, da verschiedene x-Werte auf die gleichen y-Werte abbilden.
+
+\paragraph{d)}
+\noindent weder injektiv noch surjektiv ist\\
+
+\noindent $x \mapsto x^2$\\
+
+\noindent Die Abbildung $x \mapsto x^2$ ist von $\mathbb{R} \to \mathbb{R}$ weder surjektiv, noch injektiv. $f(-2) = f(2) = 4$ widerlegt die Injektivität, da mehrere x-Werte auf den gleichen y-Wert abgebildet werden. Da $x^2$ keine negativen Werte annehmen kann, ist auch die Surjektivität widerlegt.\\
+
+\paragraph{Aufgabe 3}
+
+Sei $(K, +, \cdot, \leq)$ angeordneter Körper und $A \subseteq K$ eine nach oben beschränkte Teilmenge.\\
+\noindent Sei im folgenden $T := (\forall t \in K \mid \forall a \in A: a \leq t)$
+
+\paragraph{(a)} Satz: Besitzt $A$ ein Supremum $s$, so ist $s$ eindeutig bestimmt.
+
+\begin{proof}
+
+\noindent Sei $A \subseteq K$ eine nichtleere, nach oben beschränkte Menge mit $sup(A) = s_1, s_2 \in K$. Wir zeigen, dass daraus $s_1 = s_2$ folgt.\\
+
+\noindent\textbf{Def. Supremum:}\\ \\
+\noindent$s = sup(A)$, wenn:
+\begin{enumerate}
+    \item $s \in K$
+    \item $(\forall a \in A: a \leq s)$
+    \item $(\forall t \in T \mid s \leq t)$
+\end{enumerate}
+\noindent\textbf{Annahme:}\\ \\
+\noindent $s_1$, $s_2 = sup(A)$ mit $s_1 \neq s_2$\\ \\
+\noindent $\Rightarrow s_1, s_2 \in T \overset{\text{Def. Supremum}}{\Rightarrow} (s_1 \leq s_2) \land (s_2 \leq s_1) \overset{\text{Bem. 2.2.4}}{\Rightarrow} s_1 = s_2$\\
+
+\noindent Widerspruch zur Annahme, dass $s_1 \neq s_2$. Daraus folgt die Eindeutigkeit des Supremums, was zu zeigen war.
+
+\end{proof}
+
+\paragraph{(b)} Besitzt $A$ ein Maximum $m$, so ist $m$ eindeutig bestimmt.
+
+\begin{proof}
+
+\noindent Sei $A \subseteq K$ eine nichtleere, nach oben beschränkte Menge mit $max(A) = m_1, m_2 \in A$. Wir zeigen, dass daraus $m_1 = m_2$ folgt.\\
+
+\noindent\textbf{Def. Maximum:}\\ \\
+\noindent$m = max(A)$, wenn:
+\begin{enumerate}
+    \item $m \in A$
+    \item ($\forall a \in A: a \leq m$)
+    \item $(\forall t \in T \mid m \leq t)$
+\end{enumerate}
+\noindent\textbf{Annahme:}\\ \\
+\noindent $m_1$, $m_2 = max(A)$ mit $m_1 \neq m_2$\\ \\
+\noindent $\Rightarrow m_1, m_2 \in T \overset{\text{Def. Maximum}}{\Rightarrow} (m_1 \leq m_2) \land (m_2 \leq m_1) \overset{\text{Bem. 2.2.4}}{\Rightarrow} m_1 = m_2$\\
+
+\noindent Widerspruch zur Annahme, dass $m_1 \neq m_2$. Daraus folgt die Eindeutigkeit des Maximums, was zu zeigen war.
+
+\end{proof}
+
+\paragraph{Aufgabe 4}
+
+Seien $A := [0, 1), B := (-\infty, 0)$ und $M := (-\infty, 0) \cup (0, \infty)$ Teilmengen von ($\mathbb{R}, +, \cdot, \leq$). 
+
+\paragraph{(a)} Es gilt $sup(A) = 1 \in \mathbb{R}$.
+
+\begin{proof}
+
+Wir zeigen, dass $sup(A) = 1$.\\
+
+\noindent $[0, 1) \overset{\text{Def}}{\Rightarrow}$ ($\forall a \in A \mid a < 1$).\\ \\
+\noindent Falls $sup(A) \neq 1 \Rightarrow (\exists s \in \mathbb{R} \mid \forall a \in A: a \leq s) \Leftrightarrow s = sup(A)$\\
+
+\noindent Annahme: $(\nexists t \in \mathbb{R} \mid s < t < 1)$.\\
+
+
+\noindent Aus $A \subset \mathbb{R} \Rightarrow t = \frac{s+1}{2} \in A$ mit $s < t < 1$.\\ \\
+Also können wir unser $t$ immer so konstruieren, dass ($\forall s \in A \mid s < t < 1$). 
+
+\noindent Widerspruch zur Annahme. Damit liegt das $sup(A)$ bei 1.\\
+
+\end{proof} 
+
+\paragraph{(b)} Es gilt $sup(B) = 0 \in \mathbb{R}$.
+
+\begin{proof}
+
+Wir zeigen, dass $sup(B) = 0$.\\
+
+\noindent $(-\infty, 0) \overset{\text{Def}}{\Rightarrow} (\forall b \in B \mid b < 0)$.\\ \\
+\noindent Falls $sup(B) \neq 0 \Rightarrow (\exists s \in \mathbb{R} \mid \forall b \in B: b \leq s) \Leftrightarrow s = sup(B)$.\\
+
+\noindent Annahme: $(\nexists t \in \mathbb{R} \mid s < t < 0)$.\\
+
+\noindent Aus $B \subset \mathbb{R} \Rightarrow t = \frac{s+0}{2} \in B$ mit $s < t < 0$.\\ \\
+Also können wir unser $t$ immer so konstruieren, dass $(\forall s \in B \mid s < t < 0)$. 
+
+\noindent Widerspruch zur Annahme. Damit liegt das $sup(B)$ bei 0.\\
+\end{proof}
+
+
+\paragraph{(c)} Die Ordnung $\leq$ auf $\mathbb{R}$ induziert eine Ordnung $\leq_{M}$ auf $M$.\\
+
+\noindent Betrachten wir $M = (-\infty, 0) \cup (0, \infty) = \mathbb{R} \setminus \{0\}$. Da $M \subset \mathbb{R}$ definieren wir die induzierte Ordnung $\leq_M$ auf $M$ wie folgt:.
+
+\begin{enumerate}
+    \item $(\forall x,y \in M \mid (x \leq y) \lor (y \leq x))$ In $M$ verhält sich dies genauso wie in $\mathbb{R}$, da selbst wenn $x \in (-\infty, 0)$ und $z \in (0, \infty)$, negative und positive Zahlen weiterhin vergleichbar bleiben.
+    \item $(\forall x,y \in M \mid (x \leq y) \land (y \leq x) \Rightarrow x = y)$ Da $x, y \in M$ und $\leq_{M}$ die eingeschränkte Ordnung von $\mathbb{R}$ gilt weiterhin $x = y$.
+    \item $(\forall x,y,z \in M \mid (x \leq y) \land (y \leq z) \Rightarrow (x \leq z))$ Auch hier überträgt sich die Transitivität von $\mathbb{R}$ direkt auf $M$, da selbst wenn $x \in (-\infty, 0)$ und $z \in (0, \infty)$, nach Def. negative Zahlen kleiner als positive sind.
+\end{enumerate}
+
+\paragraph{(d)} Fasst man $B$ als Teilmenge von ($M, \leq_{M}$) auf, so besitzt $B$ kein Supremum (in $M$).
+
+\begin{proof}
+
+\noindent 
+
+\noindent Annahme: ($\exists s \in M \mid (s < 0) \land (\forall b \in B: b \leq s)$)\\
+
+\noindent Analog zu (a) und (b) lässt sich wieder ein $t$ konstruieren, sodass $(s < t < 0)$ $\forall s \in M$. \\
+\noindent Daher existiert kein $sup(B)$ in $M$.
+
+\end{proof}
+
+
+\paragraph{(d)} Fasst man $B$ als Teilmenge von $(M, \leq_M)$ auf, so besitzt $B$ kein Supremum (in $M$).
+
+\begin{proof}
+
+Wir zeigen, dass $B$ in $M$ kein Supremum besitzt.\\
+
+\noindent Aus (b) folgt, dass $sup(B) = 0$. Da $M \Leftrightarrow \mathbb{R} \setminus \{0\} \Rightarrow sup(B) \neq 0$ (in M).\\
+
+\noindent Annahme: Es gibt ein Supremum $s \in M$ für $B$.\\
+
+\noindent Dann muss gelten: ($\forall b \in B: b \leq s$).\\
+
+\noindent Da $B \subset (-\infty, 0)$, muss $s$ eine obere Schranke von $B$ in $M$ sein.\\
+
+\noindent Falls $s \in (0, \infty)$ liegt, existiert ein $t = \frac{s}{2} \in (0, \infty)$, sodass $0 < t < s$.\\
+
+\noindent Falls $s \in (-\infty, 0)$ liegt, existiert ein $t = \frac{s+1}{2} \in (-\infty, 0$, sodass $s < t < 0$. \\
+
+\noindent In beiden Fällen lässt sich immer wieder ein $t$ konstruieren, sodass $s < t \in (-\infty, 0)$, oder $t < s \in (0, \infty)$.\\
+
+\noindent Widerspruch zur Annahme, dass es ein Supremum gibt. Also besitzt $B$ kein Supremum in $M$.\\
+
+\end{proof}
+
+
+
+\end{document}
